@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: notification-engine
+
+  cloud:
+    function:
+      definition: notifications;loanNotifications
+
+    stream:
+      bindings:
+        notifications-in-0:
+          destination: notifications
+          group: notification-engine-v1
+          content-type: application/json
+
+        loanNotifications-in-0:
+          destination: loan-notifications
+          group: notification-engine-v1
+          content-type: application/json
+
+      kafka:
+        binder:
+          brokers: ${KAFKA_BROKERS:localhost:9092}
+
+logging:
+  level:
+    org.apache.kafka: ERROR
+    org.springframework.kafka: ERROR
