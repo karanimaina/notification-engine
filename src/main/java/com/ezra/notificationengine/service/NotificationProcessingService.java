@@ -31,7 +31,6 @@ public class NotificationProcessingService {
                     .collect(Collectors.joining("; "));
             throw new ConstraintViolationException(message, violations);
         }
-
         String idempotencyKey = resolveIdempotencyKey(event);
         String traceId = event.metadata() != null ? event.metadata().traceId() : null;
 

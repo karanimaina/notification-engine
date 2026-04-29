@@ -1,10 +1,7 @@
 package com.ezra.notificationengine.service;
 
-import com.ezra.notificationengine.dto.CustomerPayload;
-import com.ezra.notificationengine.dto.Metadata;
-import com.ezra.notificationengine.dto.NotificationChannel;
-import com.ezra.notificationengine.dto.NotificationEvent;
-import com.ezra.notificationengine.dto.Notification;
+
+import com.ezra.notificationengine.dto.*;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -34,7 +31,7 @@ class NotificationProcessingServiceTest {
                 "LOAN_CREATED",
                 Instant.parse("2026-04-27T10:00:00Z"),
                 "loan-service",
-                new CustomerPayload("", "A", "B", "a@b.c", "+1", null),
+                new Customer("", "A", "B", "a@b.c", "+1", null),
                 null,
                 new Notification("T1", List.of(NotificationChannel.EMAIL), "en", "NORMAL", null),
                 new Metadata("t1", null));
@@ -49,7 +46,7 @@ class NotificationProcessingServiceTest {
                 "LOAN_CREATED",
                 Instant.parse("2026-04-27T10:00:00Z"),
                 "loan-service",
-                new CustomerPayload("c1", "A", "B", "a@b.c", "+1", null),
+                new Customer("c1", "A", "B", "a@b.c", "+1", null),
                 null,
                 new Notification("T1", List.of(NotificationChannel.EMAIL), "en", "NORMAL", null),
                 new Metadata("t1", "idem-1"));

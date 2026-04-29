@@ -8,7 +8,7 @@ spring:
 
     stream:
       bindings:
-        notifications-in-0:
+        notifications-request-in-0:
           destination: notifications
           group: notification-engine-v1
           content-type: application/json
